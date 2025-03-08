@@ -1,1 +1,11 @@
 @import "tailwindcss";
+
+body{
+    background-image: url('assets/office-bg.jpg');
+    background-size: cover;
+    background-repeat: repeat-y;
+    background-position: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
