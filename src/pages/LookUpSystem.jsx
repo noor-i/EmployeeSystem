@@ -2,9 +2,15 @@ import { faAddressCard } from "@fortawesome/free-solid-svg-icons";
 import { faClose } from "@fortawesome/free-solid-svg-icons/faClose";
 import { faSearch } from "@fortawesome/free-solid-svg-icons/faSearch";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useState } from "react";
 
 const LookUpSystem = () => {
+  const [detailsOpen, setDetailsOpen] = useState(true);
+
+  const closeCard = () => {
+    setDetailsOpen(!detailsOpen);
+  };
+
   return (
     <div className="flex flex-col my-15 bg-[rgba(205,204,199,0.9)] border-2 border-[rgb(57,57,53)] shadow-2xl rounded-xl w-[90%] md:w-[80%] m-auto gap-8 overflow-hidden">
       <h1 className="text-center font-bold md:text-3xl text-2xl p-2 mt-4">
@@ -38,43 +44,47 @@ const LookUpSystem = () => {
           </p>
         </div>
       </div>
-      <div className="relative bg-white flex flex-col justify-center items-center mx-[10vw] mb-10 pt-[3vh] pb-[5vh] px-[3vw] gap-5 shadow-md shadow-gray-800 rounded-lg">
-        <FontAwesomeIcon
-          icon={faClose}
-          className="absolute top-2.5 right-3 md:text-xl text-black font-bold hover:cursor-pointer hover:bg-blue-300 bg-gray-300 px-1 py-0.5 rounded-full border-2 border-b-gray-600md:text-2xl"
-        />
-        <h1 className="font-bold text-lg mb-7 mt-7 md:text-xl border-2 border-b-blue-300 p-2 rounded-lg">
-          Employee Details
-        </h1>
-        <div className="flex flex-col md:flex-row justify-center items-center gap-8 min-w-[344px] md:gap-12 lg:gap-20">
-          <FontAwesomeIcon
-            icon={faAddressCard}
-            className="text-4xl md:text-6xl lg:text-8xl"
-          />
-          <div className="flex flex-col gap-5 text-md md:text-lg">
-            <div className="flex flex-col sm:flex-row gap-2">
-              <h1 className="font-semibold">Name:</h1>
-              <p>Mahnur Imran</p>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-2">
-              <h1 className="font-semibold">E-ID:</h1>
-              <p>8r3439</p>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-2">
-              <h1 className="font-semibold">Phone:</h1>
-              <p>778-333-3333</p>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-2">
-              <h1 className="font-semibold">Email:</h1>
-              <p>m17@sfu.ca</p>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-2">
-              <h1 className="font-semibold">Department:</h1>
-              <p>Human Resources</p>
+      {detailsOpen && (
+        <div className="relative bg-white flex flex-col justify-center items-center mx-[10vw] mb-10 pt-[3vh] pb-[5vh] px-[3vw] gap-5 shadow-md shadow-gray-800 rounded-lg">
+          <button onClick={closeCard}>
+            <FontAwesomeIcon
+              icon={faClose}
+              className="absolute top-2.5 right-3 md:text-xl text-black font-bold hover:cursor-pointer hover:bg-blue-300 bg-gray-300 px-1 py-0.5 rounded-full border-2 border-b-gray-600md:text-2xl"
+            />
+          </button>
+          <h1 className="font-bold text-lg mb-7 mt-7 md:text-xl border-2 border-b-blue-300 p-2 rounded-lg">
+            Employee Details
+          </h1>
+          <div className="flex flex-col md:flex-row justify-center items-center gap-8 min-w-[344px] md:gap-12 lg:gap-20">
+            <FontAwesomeIcon
+              icon={faAddressCard}
+              className="text-4xl md:text-6xl lg:text-8xl"
+            />
+            <div className="flex flex-col gap-5 text-md md:text-lg">
+              <div className="flex flex-col sm:flex-row gap-2">
+                <h1 className="font-semibold">Name:</h1>
+                <p>Mahnur Imran</p>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-2">
+                <h1 className="font-semibold">E-ID:</h1>
+                <p>8r3439</p>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-2">
+                <h1 className="font-semibold">Phone:</h1>
+                <p>778-333-3333</p>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-2">
+                <h1 className="font-semibold">Email:</h1>
+                <p>m17@sfu.ca</p>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-2">
+                <h1 className="font-semibold">Department:</h1>
+                <p>Human Resources</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
