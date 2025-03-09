@@ -22,8 +22,8 @@ const EmployeeRoster = () => {
   ];
 
   return (
-    <div className="flex flex-col gap-6 mt-8 mb-8 w-[90%] md:w-[80%] lg:w-[70%] mx-auto backdrop-blur-2xl p-4 md:p-6 border-2 rounded-2xl border-gray-300 shadow-md">
-      <h1 className="text-center text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-black to-gray-700 bg-clip-text text-transparent">
+    <div className="flex flex-col gap-8 my-10 w-[90%] md:w-[80%] lg:w-[70%] mx-auto backdrop-blur-2xl p-4 md:p-6 border-2 rounded-2xl border-gray-300 shadow-md">
+      <h1 className="text-center text-xl md:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-black to-gray-700 bg-clip-text text-transparent">
         Employee Roster
       </h1>
 
