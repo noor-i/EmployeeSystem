@@ -78,8 +78,8 @@ const LookUpSystem = () => {
                 <p>m17@sfu.ca</p>
               </div>
               <div className="flex flex-col sm:flex-row gap-2">
-                <h1 className="font-semibold">Department:</h1>
-                <p>Human Resources</p>
+                <h1 className="font-semibold">Leaves:</h1>
+                <p>0</p>
               </div>
             </div>
           </div>

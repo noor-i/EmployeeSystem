@@ -14,11 +14,6 @@ const EmployeeRoster = () => {
     { id: "OP45", details: "doloremquequasiarchitecto" },
     { id: "QR67", details: "beataevoluptatevelit" },
     { id: "ST89", details: "essequamnihil" },
-    { id: "UV01", details: "molestiaeconsequatur" },
-    { id: "WX23", details: "velillumquedolorem" },
-    { id: "YZ45", details: "fugiatnullapariatur" },
-    { id: "AA67", details: "excepteursintoccaecat" },
-    { id: "BB89", details: "cupidatatnonproident" },
   ];
 
   return (
