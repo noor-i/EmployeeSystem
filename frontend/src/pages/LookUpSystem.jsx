@@ -6,10 +6,38 @@ import React, { useState } from "react";
 
 const LookUpSystem = () => {
   const [detailsOpen, setDetailsOpen] = useState(true);
+  const [employeeData, setEmployeeData] = useState(false);
 
   const closeCard = () => {
     setDetailsOpen(!detailsOpen);
   };
+
+  async function getEmployeeData(e) {
+    e.preventDefault(); // Prevent form submission default behavior
+
+    const eID = document.getElementById("e_id").value;
+    const url = import.meta.env.VITE_API_GATEWAY_URL;
+
+    if (!eID) {
+      alert("Please enter a valid Employee ID.");
+      return;
+    }
+    try {
+      const response = await fetch(`${url}${eID}`);
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
+      const data = await response.json();
+
+      // Update employee data state
+      setEmployeeData(data);
+      setDetailsOpen(true);
+    } catch (error) {
+      console.log("Error fetching employee data:", error);
+    }
+  }
 
   return (
     <div className="flex flex-col my-15 bg-[rgba(205,204,199,0.9)] border-2 border-[rgb(57,57,53)] shadow-2xl rounded-xl w-[90%] md:w-[80%] m-auto gap-8 overflow-hidden">
@@ -27,7 +55,7 @@ const LookUpSystem = () => {
               id="e_id"
               name="e_id"
             ></input>
-            <button type="submit">
+            <button onClick={getEmployeeData} type="submit">
               <FontAwesomeIcon
                 icon={faSearch}
                 className="text-lg md:text-xl text-black font-bold hover:cursor-pointer bg-gray-300 p-2 rounded-3xl border-2 border-b-gray-600 hover:bg-blue-300"
@@ -44,7 +72,7 @@ const LookUpSystem = () => {
           </p>
         </div>
       </div>
-      {detailsOpen && (
+      {detailsOpen && employeeData && (
         <div className="relative bg-white flex flex-col justify-center items-center mx-[10vw] mb-10 pt-[3vh] pb-[5vh] px-[3vw] gap-5 shadow-md shadow-gray-800 rounded-lg">
           <button onClick={closeCard}>
             <FontAwesomeIcon
@@ -63,23 +91,27 @@ const LookUpSystem = () => {
             <div className="flex flex-col gap-5 text-md md:text-lg">
               <div className="flex flex-col sm:flex-row gap-2">
                 <h1 className="font-semibold">Name:</h1>
-                <p>Mahnur Imran</p>
+                <p>{employeeData.Name}</p>
               </div>
               <div className="flex flex-col sm:flex-row gap-2">
                 <h1 className="font-semibold">E-ID:</h1>
-                <p>8r3439</p>
+                <p>{employeeData.EmployeeID}</p>
               </div>
               <div className="flex flex-col sm:flex-row gap-2">
                 <h1 className="font-semibold">Phone:</h1>
-                <p>778-333-3333</p>
+                <p>{employeeData.Phone}</p>
               </div>
               <div className="flex flex-col sm:flex-row gap-2">
                 <h1 className="font-semibold">Email:</h1>
-                <p>m17@sfu.ca</p>
+                <p>{employeeData.Email}</p>
               </div>
               <div className="flex flex-col sm:flex-row gap-2">
                 <h1 className="font-semibold">Leaves:</h1>
-                <p>0</p>
+                <p>
+                  {employeeData.Leaves !== undefined
+                    ? employeeData.Leaves
+                    : "N/A"}
+                </p>
               </div>
             </div>
           </div>
