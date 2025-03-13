@@ -4,4 +4,9 @@ A three tier web application created using React, Tailwind CSS, and AWS(Lambda, 
 
 _Main project focus: gain experience with key AWS services._
 
-<img width="1280" alt="Screenshot 2025-03-08 at 5 08 09 AM" src="https://github.com/user-attachments/assets/b1d4bb39-55d0-45dc-977a-e536590094a6" />
+![demo-g](https://github.com/user-attachments/assets/500617a7-2c6f-413f-b558-a2caade25d5f)
+
+
+
+
+
